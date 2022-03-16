@@ -1,0 +1,51 @@
+<html>
+    <body>
+        <canvas width="600" height="600"></canvas>
+        <script>
+            let canvas = document.querySelector("canvas");
+            let context = canvas.getContext("2d"); // Sets the canvas environment as 2D (can also be 3D).
+
+            context.fillStyle = "#b56d21";
+            let redbox_x = 75;
+            let redbox_y = 75;
+            let redbox_width = 500;
+            let redbox_height = 500;
+            context.fillRect(redbox_x, redbox_y, redbox_width, redbox_height); // x,y,w,h
+
+            context.lineWidth = 3;
+            context.strokeStyle = "#000000";
+            context.beginPath();
+            context.rect(50, 50, 500, 500);
+            context.stroke();
+
+
+            let radius = 50;
+            let distance_between_x = 10;
+            let distance_between_y = 60;
+            circle_num_x = 3;
+            circle_num_y = 5;
+            //Code for centering the circles (on x-axis and y- axis).
+            let x = ((redbox_width + ( 2 * redbox_x)) / 2) - ((distance_between_x / 2) * (circle_num_x - 1));
+            let y = ((redbox_height + (2 * redbox_y)) / 2) - ((distance_between_y / 2) * (circle_num_y - 1));
+
+
+
+            for (let i = 0; i < circle_num_x; i++) {
+                for (let j = 0; j < circle_num_y; j++) {
+                    context.beginPath();
+                    context.arc((new_x = x + distance_between_x * i), (y + distance_between_y * j), radius, 0, Math.PI * 2);
+                    if (i % 2 == 0) {
+                        context.strokeStyle = "#000000"
+                    } 
+                    else {
+                        context.strokeStyle = "#b54821"
+                    }
+                    context.stroke();
+                    console.log(new_x)
+
+                }
+            }
+
+        </script>
+    </body>
+</html>
